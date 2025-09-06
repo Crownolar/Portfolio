@@ -1,3 +1,250 @@
+// import React, { useState, useEffect } from "react";
+// import {
+//   Menu,
+//   X,
+//   Github,
+//   Linkedin,
+//   Mail,
+//   ExternalLink,
+//   Code,
+//   Palette,
+//   Database,
+//   Globe,
+//   ChevronDown,
+//   User,
+//   Briefcase,
+//   Star,
+// } from "lucide-react";
+
+// const Portfolio = () => {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const [activeSection, setActiveSection] = useState("home");
+
+//   // Portfolio data - easily updatable
+//   const portfolioData = {
+//     personal: {
+//       name: "Oriade Yusuf",
+//       title: "Software Developer",
+//       tagline: "Crafting digital experiences with modern web technologies",
+//       email: "oriadeyusuf34@gmail.com",
+//       github: "https://github.com/Crownolar?tab=repositories",
+//       linkedin: "https://www.linkedin.com/in/oriade-yusuf-50t50/",
+//       bio: "A passionate Frontend Engineer skilled in JavaScript, React, Tailwind CSS, and Python. I enjoy building clean, responsive, and user-friendly web applications.Currently, I’m expanding my expertise in backend development and creating impactful digital solutions",
+//     },
+//     skills: [
+//       { name: "React.js", level: 90, icon: <Code className="w-5 h-5" /> },
+//       { name: "Node.js", level: 15, icon: <Database className="w-5 h-5" /> },
+//       { name: "TypeScript", level: 50, icon: <Code className="w-5 h-5" /> },
+//       {
+//         name: "UI/UX Design",
+//         level: 35,
+//         icon: <Palette className="w-5 h-5" />,
+//       },
+//       { name: "MongoDB", level: 0, icon: <Database className="w-5 h-5" /> },
+//       { name: "Next.js", level: 15, icon: <Globe className="w-5 h-5" /> },
+//       { name: "Python", level: 45, icon: <Code className="w-5 h-5" /> },
+//       { name: "JavaScript", level: 90, icon: <Code className="w-5 h-5" /> },
+//     ],
+//     projects: [
+//       {
+//         id: 1,
+//         title: "E-Commerce Platform",
+//         description:
+//           "A full-featured e-commerce solution built with React, Node.js, and Stripe integration. Features include user authentication, product management, and real-time inventory tracking.",
+//         image:
+//           "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+//         tech: ["React", "Node.js", "MongoDB", "Stripe"],
+//         github: "https://github.com/example/ecommerce",
+//         live: "https://ecommerce-demo.com",
+//         featured: true,
+//       },
+//       {
+//         id: 2,
+//         title: "Task Management App",
+//         description:
+//           "A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
+//         image:
+//           "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+//         tech: ["React", "Firebase", "Material-UI"],
+//         github: "https://github.com/example/taskmanager",
+//         live: "https://taskmanager-demo.com",
+//         featured: true,
+//       },
+//       {
+//         id: 3,
+//         title: "Weather Dashboard",
+//         description:
+//           "A responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
+//         image:
+//           "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
+//         tech: ["React", "OpenWeather API", "Chart.js"],
+//         github: "https://github.com/example/weather",
+//         live: "https://weather-demo.com",
+//         featured: false,
+//       },
+//       {
+//         id: 4,
+//         title: "Social Media Dashboard",
+//         description:
+//           "Analytics dashboard for social media management with data visualization and automated reporting features.",
+//         image:
+//           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+//         tech: ["Vue.js", "D3.js", "Express.js"],
+//         github: "https://github.com/example/social-dashboard",
+//         live: "https://social-demo.com",
+//         featured: false,
+//       },
+//       {
+//         id: 5,
+//         title: "CoreNet",
+//         description:
+//           "Analytics dashboard for social media management with data visualization and automated reporting features.",
+//         image:
+//           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+//         tech: ["React.js", "CSS", "Node.js"],
+//         github: "https://github.com/example/social-dashboard",
+//         live: "https://social-demo.com",
+//         featured: false,
+//       },
+//     ],
+//   };
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       const sections = ["home", "about", "skills", "projects", "contact"];
+//       const current = sections.find((section) => {
+//         const element = document.getElementById(section);
+//         if (element) {
+//           const rect = element.getBoundingClientRect();
+//           return rect.top <= 100 && rect.bottom >= 100;
+//         }
+//         return false;
+//       });
+//       if (current) {
+//         setActiveSection(current);
+//       }
+//     };
+
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   const scrollToSection = (sectionId: string) => {
+//     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+//     setIsMenuOpen(false);
+//   };
+
+//   type NavLinkProps = {
+//     href: string;
+//     children: React.ReactNode;
+//     mobile?: boolean;
+//   };
+
+//   const NavLink: React.FC<NavLinkProps> = ({
+//     href,
+//     children,
+//     mobile = false,
+//   }) => (
+//     <button
+//       onClick={() => scrollToSection(href)}
+//       className={`${
+//         mobile
+//           ? "block w-full text-left px-4 py-2 text-white hover:bg-gray-800 transition-colors"
+//           : `text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg ${
+//               activeSection === href ? "bg-gray-800 text-white" : ""
+//             }`
+//       }`}
+//     >
+//       {children}
+//     </button>
+//   );
+
+//   type SkillBarProps = {
+//     skill: string;
+//   };
+//   const SkillBar: React.FC<SkillBarProps> = ({ skill }) => (
+//     <div className="mb-6">
+//       <div className="flex items-center justify-between mb-2">
+//         <div className="flex items-center gap-2">
+//           <div className="text-blue-400">{skill.icon}</div>
+//           <span className="font-medium text-gray-200">{skill.name}</span>
+//         </div>
+//         <span className="text-sm text-gray-400">{skill.level}%</span>
+//       </div>
+//       <div className="w-full bg-gray-700 rounded-full h-2">
+//         <div
+//           className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-1000 ease-out"
+//           style={{ width: `${skill.level}%` }}
+//         ></div>
+//       </div>
+//     </div>
+//   );
+
+//   type Project = {
+//     title: string;
+//     description: string;
+//     tech: string[];
+//   };
+//   type ProjectCardProps = {
+//     project: Project;
+//   };
+
+//   const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
+//     <div className="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+//       {project.featured && (
+//         <div className="absolute top-4 right-4 z-10 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+//           <Star className="w-3 h-3" fill="currentColor" />
+//           Featured
+//         </div>
+//       )}
+//       <div className="relative overflow-hidden">
+//         <img
+//           src={project.image}
+//           alt={project.title}
+//           className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+//         />
+//         <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+//           <div className="flex gap-4">
+//             <a
+//               href={project.github}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors"
+//             >
+//               <Github className="w-5 h-5" />
+//             </a>
+//             <a
+//               href={project.live}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
+//             >
+//               <ExternalLink className="w-5 h-5" />
+//             </a>
+//           </div>
+//         </div>
+//       </div>
+//       <div className="p-6">
+//         <h3 className="text-xl font-semibold text-white mb-2">
+//           {project.title}
+//         </h3>
+//         <p className="text-gray-300 mb-4 leading-relaxed">
+//           {project.description}
+//         </p>
+//         <div className="flex flex-wrap gap-2">
+//           {project.tech.map((tech, index) => (
+//             <span
+//               key={index}
+//               className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm"
+//             >
+//               {tech}
+//             </span>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+
 import React, { useState, useEffect } from "react";
 import {
   Menu,
@@ -11,16 +258,14 @@ import {
   Database,
   Globe,
   ChevronDown,
-  User,
-  Briefcase,
   Star,
 } from "lucide-react";
 
-const Portfolio = () => {
+const Portfolio: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Portfolio data - easily updatable
+  // Portfolio data
   const portfolioData = {
     personal: {
       name: "Oriade Yusuf",
@@ -29,7 +274,7 @@ const Portfolio = () => {
       email: "oriadeyusuf34@gmail.com",
       github: "https://github.com/Crownolar?tab=repositories",
       linkedin: "https://www.linkedin.com/in/oriade-yusuf-50t50/",
-      bio: "A passionate Frontend Engineer skilled in JavaScript, React, Tailwind CSS, and Python. I enjoy building clean, responsive, and user-friendly web applications.Currently, I’m expanding my expertise in backend development and creating impactful digital solutions",
+      bio: "A passionate Frontend Engineer skilled in JavaScript, React, Tailwind CSS, and Python. I enjoy building clean, responsive, and user-friendly web applications. Currently, I’m expanding my expertise in backend development and creating impactful digital solutions",
     },
     skills: [
       { name: "React.js", level: 90, icon: <Code className="w-5 h-5" /> },
@@ -98,12 +343,12 @@ const Portfolio = () => {
         id: 5,
         title: "CoreNet",
         description:
-          "Analytics dashboard for social media management with data visualization and automated reporting features.",
+          "A media collaboration platform for editors and writers to manage tasks seamlessly with progress tracking.",
         image:
           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
         tech: ["React.js", "CSS", "Node.js"],
-        github: "https://github.com/example/social-dashboard",
-        live: "https://social-demo.com",
+        github: "https://github.com/example/corenet",
+        live: "https://corenet-demo.com",
         featured: false,
       },
     ],
@@ -120,21 +365,29 @@ const Portfolio = () => {
         }
         return false;
       });
-      if (current) {
-        setActiveSection(current);
-      }
+      if (current) setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
   };
 
-  const NavLink = ({ href, children, mobile = false }) => (
+  type NavLinkProps = {
+    href: string;
+    children: React.ReactNode;
+    mobile?: boolean;
+  };
+
+  const NavLink: React.FC<NavLinkProps> = ({
+    href,
+    children,
+    mobile = false,
+  }) => (
     <button
       onClick={() => scrollToSection(href)}
       className={`${
@@ -149,7 +402,17 @@ const Portfolio = () => {
     </button>
   );
 
-  const SkillBar = ({ skill }) => (
+  type Skill = {
+    name: string;
+    level: number;
+    icon: React.ReactNode;
+  };
+
+  type SkillBarProps = {
+    skill: Skill;
+  };
+
+  const SkillBar: React.FC<SkillBarProps> = ({ skill }) => (
     <div className="mb-6">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
@@ -167,8 +430,23 @@ const Portfolio = () => {
     </div>
   );
 
-  const ProjectCard = ({ project }) => (
-    <div className="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+  type Project = {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+    tech: string[];
+    github: string;
+    live: string;
+    featured: boolean;
+  };
+
+  type ProjectCardProps = {
+    project: Project;
+  };
+
+  const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
+    <div className="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group relative">
       {project.featured && (
         <div className="absolute top-4 right-4 z-10 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
           <Star className="w-3 h-3" fill="currentColor" />
