@@ -1,4 +1,4 @@
-import { Code, Palette, Database, Globe, Navigation } from "lucide-react";
+import { Code, Palette, Database, Globe } from "lucide-react";
 
 import { Footer } from "./components/Layout/Footer";
 import { portfolioData } from "./data/portfolioData";
@@ -8,6 +8,7 @@ import ProjectsSection from "./components/Projects/ProjectsSection";
 import ContactSection from "./components/Contact/ContactSection";
 import HeroSection from "./components/Sections/HeroSection";
 import AboutSection from "./components/Sections/AboutSection";
+import { Navigation } from "./components/Navigation/Navigation";
 
 const Portfolio = () => {
   const { scrollToSection } = useScrollNavigation();
