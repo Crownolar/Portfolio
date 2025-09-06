@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "dev:network": "vite --host"
+    "dev:network": "vite --host",
+    "deploy": "npm run build && surge ./dist crownolar-portfolio.surge.sh"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
