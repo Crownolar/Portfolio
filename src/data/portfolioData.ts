@@ -71,12 +71,22 @@ export const portfolioData = {
       id: 5,
       title: "CoreNet",
       description:
-        "A media collaboration platform for editors and writers to manage tasks seamlessly with progress tracking.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+        "Built a task management web application (CoreNet) that streamlined task assignments, enabled real-time progress tracking, and improved team productivity for administrators and team members.s.",
+      image: "Corenet.png",
       tech: ["React.js", "CSS", "Node.js"],
-      github: "https://github.com/example/corenet",
-      live: "https://corenet-demo.com",
+      github: "https://github.com/Crownolar/CoreNet-Application",
+      live: "https://corenetapplication.onrender.com/",
+      featured: false,
+    },
+    {
+      id: 6,
+      title: "MyProfile",
+      description:
+        "✨ Profile Hub — My Digital Identity. A clean, modern profile app that brings all my work and social links together. From my portfolio to GitHub, LinkedIn, and social platforms, everything is accessible in one beautiful interface. Features include dark/light theme toggle, smooth animations, and full mobile responsiveness",
+      image: "Profile.png",
+      tech: ["React.js", "Typescript", "TailwindCSS"],
+      github: "https://github.com/Crownolar/Profile-Link",
+      live: "http://oriadeyusuf-link.surge.sh/",
       featured: false,
     },
   ],
