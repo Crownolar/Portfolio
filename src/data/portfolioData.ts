@@ -33,14 +33,12 @@ export const portfolioData = {
     },
     {
       id: 2,
-      title: "Task Management App",
-      description:
-        "A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      tech: ["React", "Firebase", "Material-UI"],
-      github: "https://github.com/example/taskmanager",
-      live: "https://taskmanager-demo.com",
+      title: "Smart Task Management App",
+      description: "A clean and modern task management app.",
+      image: "Taskflow.png",
+      tech: ["JavaScript", "HTML", "CSS"],
+      github: "https://github.com/Crownolar/Smart-Task-Manager",
+      live: "https://smart-taskmanager.surge.sh",
       featured: true,
     },
     {
