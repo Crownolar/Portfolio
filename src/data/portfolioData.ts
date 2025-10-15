@@ -43,14 +43,13 @@ export const portfolioData = {
     },
     {
       id: 3,
-      title: "Weather Dashboard",
+      title: "Weathora",
       description:
-        "A responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-      image:
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      tech: ["React", "OpenWeather API", "Chart.js"],
-      github: "https://github.com/example/weather",
-      live: "https://weather-demo.com",
+        "A responsive weather application with location-based forecasts and detailed weather analytics.",
+      image: "wapp.png",
+      tech: ["JavaScript", "OpenWeather API", "HTML", "CSS"],
+      github: "hhttps://github.com/Crownolar/WeatherApp",
+      live: "weathora.surge.sh",
       featured: false,
     },
     {
