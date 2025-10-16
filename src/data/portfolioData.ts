@@ -50,18 +50,18 @@ export const portfolioData = {
       tech: ["JavaScript", "OpenWeather API", "HTML", "CSS"],
       github: "hhttps://github.com/Crownolar/WeatherApp",
       live: "https://weathora.surge.sh",
-      featured: false,
+      featured: true,
     },
     {
       id: 4,
-      title: "Social Media Dashboard",
+      title: "Expense Tracker",
       description:
-        "Analytics dashboard for social media management with data visualization and automated reporting features.",
+        "A responsive and intuitive web app that helps users record, categorize, and visualize their income and expenses. It tracks total income, total expenses, and balance in real-time with data persisting in localStorage for seamless user experience.",
       image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      tech: ["Vue.js", "D3.js", "Express.js"],
-      github: "https://github.com/example/social-dashboard",
-      live: "https://social-demo.com",
+        "Etracker.png",
+      tech: ["React.js", "Tailwind"],
+      github: "https://github.com/Crownolar/Expense-Tracker",
+      live: "https://expense-trail.surge.sh",
       featured: false,
     },
     {
@@ -73,7 +73,7 @@ export const portfolioData = {
       tech: ["React.js", "CSS", "Node.js"],
       github: "https://github.com/Crownolar/CoreNet-Application",
       live: "https://corenetapplication.onrender.com/",
-      featured: false,
+      featured: true,
     },
     {
       id: 6,
