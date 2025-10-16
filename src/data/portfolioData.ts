@@ -49,7 +49,7 @@ export const portfolioData = {
       image: "wapp.png",
       tech: ["JavaScript", "OpenWeather API", "HTML", "CSS"],
       github: "hhttps://github.com/Crownolar/WeatherApp",
-      live: "weathora.surge.sh",
+      live: "https://weathora.surge.sh",
       featured: false,
     },
     {
@@ -84,7 +84,7 @@ export const portfolioData = {
       tech: ["React.js", "Typescript", "TailwindCSS"],
       github: "https://github.com/Crownolar/Profile-Link",
       live: "http://oriadeyusuf-link.surge.sh/",
-      featured: false,
+      featured: true,
     },
   ],
 };
