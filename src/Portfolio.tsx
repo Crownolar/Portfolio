@@ -1,5 +1,3 @@
-import { Code, Palette, Database, Globe } from "lucide-react";
-
 import { Footer } from "./components/Layout/Footer";
 import { portfolioData } from "./data/portfolioData";
 import useScrollNavigation from "./hooks/useScrollNavigation";
@@ -13,25 +11,8 @@ import { Navigation } from "./components/Navigation/Navigation";
 const Portfolio = () => {
   const { scrollToSection } = useScrollNavigation();
 
-  const getIcon = (iconName: string) => {
-    const icons = {
-      Code: <Code className="w-5 h-5" />,
-      Palette: <Palette className="w-5 h-5" />,
-      Database: <Database className="w-5 h-5" />,
-      Globe: <Globe className="w-5 h-5" />,
-    };
-
-    return icons[iconName as keyof typeof icons] || <Code className="w-5 h-5" />;
-  };
-
-  const skillsWithIcons = portfolioData.skills.map((skill) => ({
-    ...skill,
-    icon: getIcon(skill.icon),
-  }));
-
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-slate-950 text-white">
-      {/* Global background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-slate-950" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.16),transparent_28%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.14),transparent_30%),radial-gradient(circle_at_bottom,rgba(14,165,233,0.10),transparent_30%)]" />
@@ -55,7 +36,7 @@ const Portfolio = () => {
 
         <div className="relative">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          <SkillsSection skills={skillsWithIcons} />
+          <SkillsSection skills={portfolioData.skills} />
         </div>
 
         <div className="relative">
