@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-
 export interface PersonalInfo {
   name: string;
   title: string;
@@ -10,10 +8,12 @@ export interface PersonalInfo {
   bio: string;
 }
 
+export type SkillIconName = "code" | "database" | "palette" | "globe";
+
 export interface Skill {
   name: string;
   level: number;
-  icon: ReactNode;
+  icon: SkillIconName;
 }
 
 export interface Project {

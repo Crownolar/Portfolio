@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useScrollNavigation = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -6,25 +6,32 @@ const useScrollNavigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "about", "skills", "projects", "contact"];
-      const current = sections.find((section) => {
+
+      for (const section of sections) {
         const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+        if (!element) continue;
+
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 140 && rect.bottom >= 140) {
+          setActiveSection(section);
+          break;
         }
-        return false;
-      });
-      if (current) setActiveSection(current);
+      }
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return { activeSection, scrollToSection };
 };
+
 export default useScrollNavigation;

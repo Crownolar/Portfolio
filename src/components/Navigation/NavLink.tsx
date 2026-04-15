@@ -17,13 +17,19 @@ const NavLink = ({
 }: NavLinkProps) => (
   <button
     onClick={() => onClick(href)}
-    className={`${
+    className={
       mobile
-        ? "block w-full text-left px-4 py-2 text-white hover:bg-gray-800 transition-colors"
-        : `text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg ${
-            isActive ? "bg-gray-800 text-white" : ""
+        ? `w-full text-left px-4 py-3 rounded-xl transition-all duration-300 ${
+            isActive
+              ? "bg-white/10 text-white"
+              : "text-slate-300 hover:bg-white/5 hover:text-white"
           }`
-    }`}
+        : `px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            isActive
+              ? "bg-white/10 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+              : "text-slate-300 hover:text-white hover:bg-white/5"
+          }`
+    }
   >
     {children}
   </button>
